@@ -18,7 +18,7 @@ const QR = {
       type: 3,
       name: 'color',
       description:
-        'Hex encoded foreground color #rrggbb\n(default is black: #000000)',
+        'Foreground color of the generated QR Code, (Examples: "red", "rgb(255, 0, 0)" or "#FF0000")',
       required: false,
     },
   ],
@@ -29,7 +29,7 @@ const QR = {
     colorValue.pop();
     const qrCode = qrImage.image(userString, {
       type: 'png',
-      color: colorValue.length ? colorValue : '#000000',
+      color: colorValue.length ? colorValue : '#FFFFFF',
       transparent: true,
       size: 30,
     });
@@ -50,7 +50,7 @@ const QR = {
     };
     if (colorString && !colorValue.length) {
       await interaction.reply({
-        content: 'Invalid color entered, try any valid color format.',
+        content: 'Invalid color entered, check the color format.',
         ephemeral: true,
       });
     } else {
