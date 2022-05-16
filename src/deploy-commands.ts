@@ -5,7 +5,7 @@ import { REST } from '@discordjs/rest';
 import { Routes } from 'discord-api-types/v9';
 
 const { token, clientId } = process.env;
-const commands: Array<JSON> = [require('./commands/qr').default];
+const commands: Array<JSON> = [require('./commands/qr')];
 const rest = new REST({ version: '9' }).setToken(token as string);
 
 rest

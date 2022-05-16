@@ -7,7 +7,7 @@ import { Client, Collection, Intents } from 'discord.js';
   const { token } = process.env;
   const bot = new Client({ intents: [Intents.FLAGS.GUILDS] });
   bot.commands = new Collection();
-  const command = require('./commands/qr').default;
+  const command = require('./commands/qr');
   bot.commands.set(command.name, command);
 
   bot.once('ready', () => console.log('Bot is listening for Commands!'));

@@ -87,4 +87,4 @@ const QR = {
   },
 };
 
-export default QR;
+export = QR;
