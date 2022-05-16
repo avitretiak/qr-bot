@@ -8,7 +8,7 @@
   "scripts": {
     "build": "tsc -p ./src/tsconfig.json",
     "start": "node -r dotenv/config ./build/index.js",
-    "deploy-commands": "node -r dotenv/config ./build/deploy-commands.js",
+    "deploy-commands": "yarn build && node -r dotenv/config ./build/deploy-commands.js",
     "dev": "yarn build && yarn start"
   },
   "license": "MIT",
