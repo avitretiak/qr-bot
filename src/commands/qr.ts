@@ -7,20 +7,20 @@ const data = {
   description: 'Generates a QR for a given string of text!',
   options: [
     {
-      type: 'STRING',
+      type: 3,
       name: 'string',
       description: 'String you wish to encode into a QR Code',
       required: true,
     },
     {
-      type: 'STRING',
+      type: 3,
       name: 'color',
       description:
         'Foreground color of the generated QR Code, (Examples: "red", "rgb(255, 0, 0)" or "#FF0000")',
       required: false,
     },
     {
-      type: 'INTEGER',
+      type: 4,
       name: 'size',
       description: 'Size of each QR module in integer pixels (default is 5)',
       required: false,
