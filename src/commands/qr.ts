@@ -25,11 +25,11 @@ const QR = {
   async execute(interaction: typeof Interaction) {
     const userString = `${interaction.options.getString('string')}`;
     const colorString = interaction.options.getString('color');
-    const colorValue = rgba(colorString);
-    colorValue.pop();
+    const parsedColor = rgba(colorString);
+    parsedColor.pop();
     const qrCode = qrImage.image(userString, {
       type: 'png',
-      color: colorValue.length ? colorValue : '#FFFFFF',
+      color: (colorString && parsedColor.length) ? parsedColor : '#FFFFFF',
       transparent: true,
       size: 30,
     });
@@ -48,7 +48,7 @@ const QR = {
       ],
       timestamp: new Date(),
     };
-    if (colorString && !colorValue.length) {
+    if (colorString && !parsedColor.length) {
       await interaction.reply({
         content: 'Invalid color entered, check the color format.',
         ephemeral: true,
