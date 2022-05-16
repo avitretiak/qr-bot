@@ -22,7 +22,7 @@ const data = {
     {
       type: 4,
       name: 'size',
-      description: 'Size of each QR module in integer pixels (default is 5)',
+      description: 'Size of each QR module in pixels (must be a positive integer, default is 5, max is 100)',
       required: false,
     },
   ],
@@ -59,7 +59,12 @@ const QR = {
     const size = interaction.options.getInteger('size') ?? 5;
     if (color && !rgba(color).length) {
       await interaction.reply({
-        content: 'Unable to parse color, double-check the color format.',
+        content: `Unable to parse color "${color}", double-check the color format.`,
+        ephemeral: true,
+      });
+    } else if (size > 100 || size < 1) {
+      await interaction.reply({
+        content: `Invalid size ${size}, Input a valid integer between 1 and 100`,
         ephemeral: true,
       });
     } else {
