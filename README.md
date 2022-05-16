@@ -1,2 +1,2 @@
-# qr-bot
-Discord QR Generating Chat-Bot - For Codementor.io Project
+# QR-bot
+Discord Chat-Bot to generate a QR code - Based on Codementor.io DevProjects
